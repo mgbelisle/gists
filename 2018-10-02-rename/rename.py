@@ -11,7 +11,7 @@ for fname in os.listdir():
             fname2 = os.path.join(fname, fname2)
             suffix = ' SHP'
             if os.path.isdir(fname2) and fname2.endswith(suffix):
-                mv_ops.append((fname2, fname2[:len(suffix)]))
+                mv_ops.append((fname2, fname2[:-len(suffix)]))
 
 for src, dest in mv_ops:
     os.renames(src, dest)
