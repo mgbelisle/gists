@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import shutil
 
 
 mv_ops = [] # [(src1, dest1), (src2, dest2), ...]
@@ -14,4 +15,5 @@ for fname in os.listdir():
                 mv_ops.append((fname2, fname2[:-len(suffix)]))
 
 for src, dest in mv_ops:
+    shutil.rmtree(dest)
     os.renames(src, dest)
