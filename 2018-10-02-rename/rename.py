@@ -15,5 +15,6 @@ for fname in os.listdir():
                 mv_ops.append((fname2, fname2[:-len(suffix)]))
 
 for src, dest in mv_ops:
-    shutil.rmtree(dest)
+    if os.path.isdir():
+        shutil.rmtree(dest)
     os.renames(src, dest)
